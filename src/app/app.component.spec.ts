@@ -1,31 +1,24 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { PlanetsModule } from "src/features/planets/planets.module";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
-describe('AppComponent', () => {
+describe('AppComponent related tests', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
+      imports: [
+        PlanetsModule,
+        HttpClientTestingModule,
+      ]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('Should create the AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'isolutions-test-task'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('isolutions-test-task');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('isolutions-test-task app is running!');
   });
 });

@@ -1,0 +1,17 @@
+<ng-container *ngIf="planets$ | withLoading | async as planets">
+  <ng-template [ngIf]="planets.value?.length">
+    <mat-form-field appearance="outline">
+      <mat-label>Select planet</mat-label>
+      <mat-select
+        (valueChange)="planetsService.changePlanetSelection($event)"
+      >
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let planet of planets.value" [value]="planet">
+          {{planet.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-template>
+  <ng-template [ngIf]="planets.error">Error {{ planets.error }}</ng-template>
+  <ng-template [ngIf]="planets.loading">Loading...</ng-template>
+</ng-container>

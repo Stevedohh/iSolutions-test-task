@@ -1,0 +1,5 @@
+<ul class="planets-dialog">
+  <li *ngFor="let people of peoples; index as i">
+    {{ i + 1 }}. {{ people.name }}, {{ people.height }}, {{ people.birth_year }};
+  </li>
+</ul>
